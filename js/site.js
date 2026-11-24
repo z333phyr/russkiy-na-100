@@ -15,7 +15,8 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 
   // появление секций (один раз)
-  const rv = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); rv.unobserve(e.target); } }), { threshold: 0.12 });
+  // порог по краю экрана, а не по доле блока: высокий блок (отзывы на узком телефоне) иначе так и не появлялся
+  const rv = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); rv.unobserve(e.target); } }), { threshold: 0, rootMargin: '0px 0px -12% 0px' });
   document.querySelectorAll('.rv').forEach(el => rv.observe(el));
 
   // слоган: слова загораются по очереди
