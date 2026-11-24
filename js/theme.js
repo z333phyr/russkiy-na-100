@@ -82,8 +82,9 @@
       '<div class="palx-list" id="palx-list" role="group" aria-label="Палитра" hidden>' +
       PALS.map(x => `<button type="button" data-pal-id="${x.id}" aria-pressed="${x.id === cur}"><i style="--sp:${x.p};--sa:${x.a};--sb:${x.b}"></i>${x.name}</button>`).join('') +
       '<div class="palx-own"><b>Свои цвета</b><div class="palx-fields">' +
-      FIELDS.map(([k, l]) => `<label><input type="color" data-k="${k}"><span>${l}</span></label>`).join('') +
+      FIELDS.map(([k, l]) => `<label><input type="color" data-k="${k}"><span>${l} <code data-hex="${k}"></code></span></label>`).join('') +
       '</div><label class="palx-chk"><input type="checkbox" data-grad checked><span>Градиент на кнопках</span></label>' +
+      '<button type="button" class="palx-reset" data-copy-hex>Скопировать коды</button>' +
       '<button type="button" class="palx-reset" data-reset>Сбросить свои цвета</button></div>' +
       '</div>';
     document.body.appendChild(wrap);
@@ -102,7 +103,9 @@
       const c = custom || Object.fromEntries(FIELDS.map(([k]) => [k, hexOf(k)]));
       inputs.forEach(i => { i.value = c[i.dataset.k] || hexOf(i.dataset.k); });
       grad.checked = custom ? !!custom.grad : true;
+      showHex();
     };
+    const showHex = () => inputs.forEach(i => { list.querySelector(`[data-hex=${i.dataset.k}]`).textContent = i.value.toUpperCase(); });
     const saveOwn = () => {
       applyOwn(custom);
       try { custom ? localStorage.setItem(CKEY, JSON.stringify(custom)) : localStorage.removeItem(CKEY); } catch (err) {}
@@ -111,7 +114,18 @@
       if (!e.target.matches('[data-k],[data-grad]')) return;
       custom = Object.fromEntries(inputs.map(i => [i.dataset.k, i.value]));
       custom.grad = grad.checked;
-      saveOwn();
+      saveOwn(); showHex();
+    });
+    // коды цветов текстом — чтобы заказчик мог отправить свой вариант
+    const copyBtn = list.querySelector('[data-copy-hex]');
+    copyBtn.addEventListener('click', () => {
+      const base = PALS.find(x => x.id === cur).name;
+      const text = [`Палитра: ${custom ? 'свои цвета (на основе «' + base + '»)' : '«' + base + '»'}`]
+        .concat(FIELDS.map(([k, l]) => `${l}: ${list.querySelector(`[data-k=${k}]`).value.toUpperCase()}`))
+        .concat(`Градиент на кнопках: ${grad.checked ? 'да' : 'нет'}`).join('\n');
+      const done = ok => { copyBtn.textContent = ok ? 'Скопировано ✓' : 'Не удалось — выделите коды вручную'; setTimeout(() => { copyBtn.textContent = 'Скопировать коды'; }, 2500); };
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(() => done(true), () => done(false));
+      else { const ta = document.createElement('textarea'); ta.value = text; ta.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(ta); ta.select(); let ok = false; try { ok = document.execCommand('copy'); } catch (e) {} ta.remove(); done(ok); }
     });
     list.querySelector('[data-reset]').addEventListener('click', () => { custom = null; saveOwn(); fill(); });
     const setOpen = open => { list.hidden = !open; btn.setAttribute('aria-expanded', open); if (open) fill(); };

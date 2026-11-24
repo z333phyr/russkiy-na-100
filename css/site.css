@@ -161,10 +161,10 @@ section{position:relative}
 .tmpl p{font-size:23px;line-height:36px;color:rgba(255,255,255,.9)}
 /* что вы получите / почему я: без карточек */
 .who2{display:grid;gap:40px}
-.whoc.y ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-radius:32px;background:var(--cd);box-shadow:0 0 0 1px color-mix(in srgb,var(--p) 12%,transparent)}
-.whoc.y li{padding:40px}
-.whoc.y li+li{border-left:1px solid var(--line)}
-.whoc.y h3{font-family:var(--disp);font-size:26px;line-height:1.2;color:var(--p);margin-bottom:12px;white-space:nowrap}
+.whoc.y ul{display:grid;grid-template-columns:minmax(0,1fr);border-radius:32px;background:var(--cd);box-shadow:0 0 0 1px color-mix(in srgb,var(--p) 12%,transparent)}
+.whoc.y li{display:grid;grid-template-columns:440px minmax(0,1fr);column-gap:48px;align-items:baseline;padding:32px 40px}
+.whoc.y li+li{border-top:1px solid var(--line)}
+.whoc.y h3{font-family:var(--disp);font-size:26px;line-height:1.2;color:var(--p);white-space:nowrap}
 .whoc.y p{font-size:24px;line-height:39px;color:var(--tx2)}
 .whoc.n{max-width:none;padding:8px 0 8px 32px;border-left:6px solid var(--hl)}
 .whoc.n ul{display:flex;flex-direction:column;gap:6px;list-style:none;padding:0;margin:0}
@@ -401,7 +401,9 @@ body.v03{transition:background-color .4s}
 .palx label{display:flex;flex-direction:row;align-items:center;gap:8px;font-size:15px;line-height:1.2;font-weight:600;color:var(--tx);cursor:pointer}
 .palx input[type=color]{width:38px;height:38px;padding:2px;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer}
 .palx input[type=checkbox]{width:18px;height:18px;padding:0;accent-color:var(--p)}
-.palx-reset{margin-left:auto;padding:8px 14px;border:0;border-radius:999px;background:var(--sf);color:var(--p);font:inherit;font-size:15px;font-weight:600;cursor:pointer}
+.palx [data-copy-hex]{margin-left:auto}
+.palx code{font:600 14px/1 ui-monospace,Menlo,monospace;color:var(--tx2);margin-left:4px;user-select:all}
+.palx-reset{padding:8px 14px;border:0;border-radius:999px;background:var(--sf);color:var(--p);font:inherit;font-size:15px;font-weight:600;cursor:pointer}
 
 /* формы записи: мягкое появление и отклик элементов */
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
@@ -428,7 +430,7 @@ body.v03{transition:background-color .4s}
   :root{--pad:32px}
   .hdr nav{display:none}.burger{display:block}.hdr .bar>.btn{display:none}
   .price{grid-template-columns:1fr}
-  .whoc.y ul{grid-template-columns:1fr}.whoc.y li+li{border-left:0;border-top:1px solid var(--line)}
+  .whoc.y li{display:block}.whoc.y h3{margin-bottom:12px;white-space:normal}
   .tmpl{grid-template-columns:1fr 1fr}
   .why{grid-template-columns:1fr 1fr}
   .h-ov .panel{grid-template-columns:1fr}
@@ -477,7 +479,7 @@ body.v03{transition:background-color .4s}
   .get li{font-size:22px;line-height:35px}
   .fmt{gap:56px}
   .apc,.rbig{padding:28px 20px;border-radius:24px;min-height:0}
-  .whoc.y ul{grid-template-columns:minmax(0,1fr);border-radius:24px}.whoc.y li{padding:24px 20px}.whoc.y li+li{border-left:0;border-top:1px solid var(--line)}.whoc.y h3{font-size:21px}
+  .whoc.y ul{grid-template-columns:minmax(0,1fr);border-radius:24px}.whoc.y li{padding:24px 20px}.whoc.y h3{font-size:21px}
   .whoc.n{padding-left:20px;border-left-width:5px}.whoc.n p{font-size:22px;line-height:36px}
   .whoc.n li{white-space:normal;font-size:22px;line-height:36px}
   .rbig .ch{gap:8px}.rbig .ch i span{font-size:17px;top:-28px}
@@ -526,6 +528,6 @@ body.v03{transition:background-color .4s}
 @media (max-width:379px){
   .h-ov .tags span{font-size:17px;padding:7px 12px}
 }
-@media (max-width:1380px){
-  .whoc.y h3{white-space:normal} /* заголовки «С кем я работаю» в одну строку только там, где помещаются */
+@media (max-width:1240px){
+  .h-ov .panel{grid-template-columns:1fr} /* текст и три круга по 200px в одну строку не помещаются */
 }
