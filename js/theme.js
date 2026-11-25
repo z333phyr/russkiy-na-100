@@ -2,7 +2,8 @@
 // Подключать в <head> без defer: атрибут ставится до отрисовки, чтобы не мигали старые цвета.
 (() => {
   const PALS = [
-    { id: 'classic', name: 'Классика', p: '#1B3A8C', a: '#E8B23A', b: '#F1F4FB' },
+    { id: 'classic', name: 'Классика', p: '#013FE9', a: '#E2E538', b: '#EFEBF9' },
+    { id: 'classic-old', name: 'Старая классика', p: '#1B3A8C', a: '#E8B23A', b: '#F1F4FB' },
     { id: 'coral', name: 'Шоколад и коралл', p: '#3B2621', a: '#E07A57', b: '#EFE7DC' },
     { id: 'bordo', name: 'Бордо и золото', p: '#5A1A28', a: '#E2B142', b: '#F1E9E1' },
     { id: 'sage', name: 'Шалфей и терракота', p: '#233F35', a: '#EA9A78', b: '#E9ECE4' },
