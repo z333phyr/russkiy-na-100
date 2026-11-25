@@ -47,7 +47,7 @@ ul{padding:0;list-style:none}
 .hdr nav{display:flex;gap:32px;margin-left:auto}
 .hdr .logo svg{width:26px;height:39px}.hdr .logo .wm{font-size:26px}
 .hdr .bar>.btn{padding:11px 22px;font-size:18px;line-height:24px}
-.hdr nav a{font-size:24px;line-height:31px;font-weight:600;color:var(--tx2);padding:6px 0;transition:color .3s var(--ease)}
+.hdr nav a{white-space:nowrap;font-size:24px;line-height:31px;font-weight:600;color:var(--tx2);padding:6px 0;transition:color .3s var(--ease)}
 .hdr nav a:hover,.hdr nav a.on{color:var(--p)}
 .hdr nav a.on{box-shadow:inset 0 -2px 0 var(--hl)}
 .burger{display:none;width:44px;height:44px;border-radius:14px;border:0;background:var(--sf);color:var(--p);cursor:pointer;position:relative;margin-left:auto}
@@ -266,7 +266,7 @@ section{position:relative}
 .mb{display:flex;align-items:center;gap:14px;width:100%;padding:12px 18px 12px 12px;border-radius:16px;border:0;background:#fff;box-shadow:inset 0 0 0 1.5px var(--line);font:inherit;color:var(--tx);text-align:left;cursor:pointer;transition:box-shadow .3s var(--ease),transform .3s var(--ease)}
 .mb:hover{box-shadow:inset 0 0 0 1.5px var(--p),0 10px 24px rgba(16,27,51,.10);transform:translateY(-2px)}
 .mb .ic{flex:none;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-style:normal;font-weight:800;font-size:18px;color:#fff}
-.ic.tg{background:#229ED9}.ic.mx{background:linear-gradient(135deg,#2F8CFF,#8A3FFC);font-size:15px}.ic.vk{background:#0077FF}.ic.wc{background:#07C160}
+.ic.tg,.ic.mx,.ic.vk{background:none}.ic.wc{background:#07C160} /* официальные знаки: Telegram, VK, MAX — сами по себе, WeChat — белый на зелёном */
 .mb span{flex:1;display:flex;flex-direction:column}
 .mb b{font-size:21px;line-height:29px;font-weight:700;color:var(--p)}
 .mb small{font-size:18px;line-height:24px;color:#5C6272}
@@ -535,6 +535,7 @@ body.v03{transition:background-color .4s}
 @media (max-width:359px){
   .h-ov .tags span{font-size:15px;padding:6px 10px}
   .rev blockquote{hyphens:auto;-webkit-hyphens:auto} /* «времяпрепровождение» шире карточки на 320px */
+  .apc .n{font-size:20px;line-height:24px} /* 25px «Старшеклассникам» шире карточки на 320px */
   .mb{gap:10px;padding:10px 12px 10px 10px}.mb span{min-width:0}.mb b{font-size:18px}.mb em{flex:none}
 }
 @media (max-width:1240px){
@@ -546,4 +547,7 @@ body.v03{transition:background-color .4s}
 }
 @media (max-width:1360px){
   .ess-hd{grid-template-columns:1fr;gap:12px}.ess-hd p{justify-self:start;text-align:left;max-width:none} /* подпись «Мастерской» под заголовком, а не в узкой колонке */
+}
+@media (min-width:1101px) and (max-width:1279px){
+  .hdr .bar{gap:18px}.hdr nav{gap:18px} /* меню 24px помещается в строку за счёт промежутков */
 }
