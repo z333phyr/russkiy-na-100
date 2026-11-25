@@ -1,6 +1,6 @@
 /* Стили сайта «Русский на 100». Цвета заданы переменными на body.v03. */
 :root{--disp:'Unbounded',sans-serif;--scr:'Cormorant Garamond',serif;--ease:cubic-bezier(0.22,1,0.36,1);--pad:48px;--max:clamp(1100px,92vw,1560px)}
-.v03{--hl:#E2E538;--p:#013FE9;--a:#E2E538;--ag:#E2E538;--bg:#FFFFFF;--tx:#0D0C0C;--sf:#EFEBF9;--cd:#FFFFFF;--on-a:#0D0C0C;--body:'Manrope',sans-serif;--br:999px;--tx2:#2C3244;--line:color-mix(in srgb,var(--p) 12%,transparent)}
+.v03{--hl:#E9C40C;--p:#013FE9;--a:#E2E538;--hl:#E9C40C;--ag:linear-gradient(135deg,color-mix(in srgb,var(--a) 45%,#fff) 0%,var(--a) 32%,color-mix(in srgb,var(--a) 82%,#000) 64%,color-mix(in srgb,var(--a) 62%,#fff) 100%);--bg:#FFFFFF;--tx:#0D0C0C;--sf:#EFEBF9;--cd:#FFFFFF;--on-a:#0D0C0C;--body:'Manrope',sans-serif;--br:999px;--tx2:#2C3244;--line:color-mix(in srgb,var(--p) 12%,transparent)}
 .v03 .alt,.v03 .sfbg{--cd:#FFFFFF}
 
 *{box-sizing:border-box}
@@ -164,7 +164,7 @@ section{position:relative}
 .whoc.y ul{display:grid;grid-template-columns:minmax(0,1fr);border-radius:32px;background:var(--cd);box-shadow:0 0 0 1px color-mix(in srgb,var(--p) 12%,transparent)}
 .whoc.y li{display:grid;grid-template-columns:440px minmax(0,1fr);column-gap:48px;align-items:baseline;padding:32px 40px}
 .whoc.y li+li{border-top:1px solid var(--line)}
-.whoc.y h3{font-family:var(--disp);font-size:26px;line-height:1.2;color:var(--p)}
+.whoc.y h3{font-family:var(--disp);font-size:30px;line-height:1.2;color:var(--p)}
 .whoc.y p{font-size:24px;line-height:39px;color:var(--tx2)}
 .whoc.n{max-width:none;padding:8px 0 8px 32px;border-left:6px solid var(--hl)}
 .whoc.n ul{display:flex;flex-direction:column;gap:6px;list-style:none;padding:0;margin:0}
@@ -254,7 +254,7 @@ section{position:relative}
 .goals legend{padding:0;margin-bottom:12px;font-size:21px;font-weight:600}
 .goals label{display:block;cursor:pointer}
 .goals input{position:absolute;opacity:0;width:1px;height:1px}
-.goals span{display:inline-block;padding:10px 18px;border-radius:999px;font-size:20px;line-height:27px;font-weight:600;color:var(--p);background:var(--sf);box-shadow:inset 0 0 0 1px var(--line);transition:background .2s var(--ease),color .2s var(--ease)}
+.goals span{display:inline-block;padding:11px 20px;border-radius:999px;font-size:23px;line-height:29px;font-weight:600;color:var(--p);background:var(--sf);box-shadow:inset 0 0 0 1px var(--line);transition:background .2s var(--ease),color .2s var(--ease)}
 .goals label:hover span{background:color-mix(in srgb,var(--p) 10%,var(--sf))}
 .goals input:checked+span{background:var(--p);color:#fff;box-shadow:none}
 .goals input:focus-visible+span{outline:3px solid var(--hl);outline-offset:2px}
