@@ -23,10 +23,10 @@ ul{padding:0;list-style:none}
 .eyb{font-family:var(--disp);font-weight:600;letter-spacing:-.01em;font-size:21px;line-height:40px;color:var(--p)}
 
 /* логотип */
-.logo{display:inline-flex;align-items:center;gap:8px}
+.logo{display:inline-flex;align-items:center;gap:10px}
 .logo svg{flex:none}
-.logo .wm{font-family:var(--disp);font-weight:700;text-transform:uppercase;line-height:.92;font-size:34px;letter-spacing:.01em;color:var(--p)}
-.logo .wm b{color:var(--hl)}
+.logo .wm{font-family:var(--disp);font-weight:700;line-height:1.02;font-size:34px;letter-spacing:-.01em;color:var(--p)}
+.logo .wm i{font-style:normal;text-transform:none;letter-spacing:0;font-size:.6em;color:color-mix(in srgb,var(--hl) 72%,#000)} /* «.онлайн» — окончание домена */
 
 /* кнопки */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:16px 32px;border-radius:var(--br);font-family:var(--body);font-weight:600;font-size:20px;line-height:28px;cursor:pointer;border:0;white-space:nowrap;transition:transform .5s var(--ease),background .3s var(--ease),box-shadow .3s var(--ease)}
@@ -45,7 +45,7 @@ ul{padding:0;list-style:none}
 .hdr{position:sticky;top:12px;z-index:40;margin:12px auto 0;max-width:calc(var(--max) - 2*var(--pad) + 80px);padding:0 16px}
 .hdr .bar{display:flex;align-items:center;gap:28px;padding:8px 8px 8px 22px;border-radius:20px;background:color-mix(in srgb,var(--cd) 78%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 8px 32px rgba(20,30,50,.08),0 0 0 1px color-mix(in srgb,var(--p) 8%,transparent)}
 .hdr nav{display:flex;gap:32px;margin-left:auto}
-.hdr .logo svg{width:26px;height:39px}.hdr .logo .wm{font-size:26px}
+.hdr .logo svg{width:38px;height:38px}.hdr .logo .wm{font-size:26px}
 .hdr .bar>.btn{padding:11px 22px;font-size:18px;line-height:24px}
 .hdr nav a{white-space:nowrap;font-size:24px;line-height:31px;font-weight:600;color:var(--tx2);padding:6px 0;transition:color .3s var(--ease)}
 .hdr nav a:hover,.hdr nav a.on{color:var(--p)}
@@ -300,7 +300,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--p);box-s
 .doc .meta{color:#5C6272;font-size:20px}
 .doc-hdr{position:sticky;top:12px;z-index:40;margin:12px auto 0;max-width:calc(var(--max) - 2*var(--pad) + 80px);padding:0 16px}
 .doc-hdr .bar{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:8px 8px 8px 22px;border-radius:20px;background:color-mix(in srgb,var(--cd) 88%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 16px 48px rgba(20,30,50,.12),0 0 0 1px color-mix(in srgb,var(--p) 8%,transparent)}
-.doc-hdr .wm{font-size:26px}.doc-hdr .logo svg{width:26px;height:39px}
+.doc-hdr .wm{font-size:26px}.doc-hdr .logo svg{width:38px;height:38px}
 .doc-hdr .bar .btn{padding:11px 22px;font-size:18px}
 
 /* модалка документов */
@@ -386,7 +386,7 @@ html[data-pal=night] body.v03{--p:#1C2A48;--a:#E9CF9E}
 
 /* новые палитры: фон, подложка, текст и градиент акцента выводятся из --p и --a */
 html[data-pal=brick] body.v03,html[data-pal=plum] body.v03,html[data-pal=vanilla] body.v03,html[data-pal=coffee] body.v03,html[data-pal=cherry] body.v03,html[data-pal=copper] body.v03,html[data-pal=garnet] body.v03,html[data-pal=cocoa] body.v03,html[data-pal=emerald] body.v03,html[data-pal=indigo] body.v03,html[data-pal=graphite] body.v03,html[data-pal=petrol] body.v03,html[data-pal=night] body.v03{--hl:color-mix(in srgb,var(--a) 82%,var(--p));--bg:color-mix(in srgb,var(--p) 4%,#FFFBF6);--sf:color-mix(in srgb,var(--p) 11%,#FFF9F4);--on-a:color-mix(in srgb,var(--p) 55%,#000);--tx:color-mix(in srgb,var(--p) 18%,#1E1E1E);--tx2:color-mix(in srgb,var(--p) 25%,#3A3A3A);--ag:linear-gradient(135deg,color-mix(in srgb,var(--a) 45%,#fff) 0%,var(--a) 32%,color-mix(in srgb,var(--a) 82%,#000) 64%,color-mix(in srgb,var(--a) 62%,#fff) 100%)}
-.logo svg path{fill:var(--p)}.logo svg polygon{fill:var(--hl)}
+.logo svg path{fill:var(--p)}.logo svg polyline{stroke:var(--hl)}
 body.v03{transition:background-color .4s}
 .palx{position:fixed;left:16px;bottom:16px;z-index:29;display:flex;flex-direction:column-reverse;align-items:flex-start;gap:10px}
 .palx:has([aria-expanded=true]){z-index:45} /* под меню и формами, но открытый список — поверх шапки */
@@ -510,7 +510,7 @@ body.v03{transition:background-color .4s}
   .dmodal .card:not(.rec) p,.dmodal .card:not(.rec) li{font-size:18px;line-height:27px}
   .doc .card{padding:32px 20px;border-radius:24px}
   .doc h1{font-size:26px}
-  .doc-hdr .logo .wm{font-size:18px}.doc-hdr .bar{padding:10px 12px;gap:8px}.doc-hdr .bar .btn{padding:10px 14px;font-size:17px}
+  .doc-hdr .logo .wm{font-size:18px}.doc-hdr .logo svg{width:30px;height:30px}.doc-hdr .logo{gap:7px}.doc-hdr .bar{padding:10px 12px;gap:8px}.doc-hdr .bar .btn{padding:10px 14px;font-size:17px}
   .doc h2{font-size:20px}
   .dmodal .card.rec .msg{padding:32px 20px 24px}
   .mpanel a{font-size:25px}
@@ -520,20 +520,21 @@ body.v03{transition:background-color .4s}
   .shd p,.ess-hd p,.apc ul,.apc .case,.tmpl p,.whoc.y p,.why p,.pc ul,.rbig p,.rsm p,.faq details p,.fin .lead{font-size:22px;line-height:34px}
   .palx-list{grid-template-columns:repeat(2,minmax(0,1fr))}.palx-list{padding:6px;gap:0;max-height:calc(100vh - 90px)}.palx-list button{font-size:14px;line-height:1.15;gap:7px;padding:5px 5px}.palx-list i{width:20px;height:20px}
   .hdr,.doc-hdr{padding:0 8px}
-  .hdr .logo svg{width:22px;height:33px}.hdr .logo .wm{font-size:22px}
+  .hdr .logo svg{width:32px;height:32px}.hdr .logo .wm{font-size:22px}
   .logo .wm{font-size:30px}
 }
 @media (max-width:359px){
   .circ b{width:96px;font-size:19px}
   .apc .case b{font-size:34px}
   .rbig .ch{gap:5px}.rbig .ch i span{font-size:15px}
-  .hdr .logo .wm{font-size:20px}.hdr .logo svg{width:20px;height:30px}
+  .hdr .logo .wm{font-size:20px}.hdr .logo svg{width:28px;height:28px}
 }
 @media (max-width:379px){
   .h-ov .tags span{font-size:17px;padding:7px 12px}
 }
 @media (max-width:359px){
   .h-ov .tags span{font-size:15px;padding:6px 10px}
+  .doc-hdr .logo .wm{font-size:16px}.doc-hdr .logo svg{width:26px;height:26px}
   .rev blockquote{hyphens:auto;-webkit-hyphens:auto} /* «времяпрепровождение» шире карточки на 320px */
   .apc .n{font-size:20px;line-height:24px} /* 25px «Старшеклассникам» шире карточки на 320px */
   .mb{gap:10px;padding:10px 12px 10px 10px}.mb span{min-width:0}.mb b{font-size:18px}.mb em{flex:none}
