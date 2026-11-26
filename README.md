@@ -28,9 +28,7 @@ img/            — фотографии, иконка сайта, QR-код WeC
 
 ## Публикация
 
-Сайт работает на отдельном хостинге: [russkoeslovo.online](https://russkoeslovo.online/). Этот репозиторий — исходный код; GitHub Pages для него отключён.
-
-Чтобы обновить сайт, загрузите файлы `index.html`, `oferta.html`, `politika.html` и папки `css`, `js`, `img` в корень сайта на хостинге (обычно `public_html`) с заменой старых, затем сбросьте кеш хостинга. Если изменения не видны — обновите страницу без кеша (Cmd+Shift+R / Ctrl+F5).
+Сайт работает на отдельном хостинге: [russkoeslovo.online](https://russkoeslovo.online/).
 
 ## Права
 
