@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /*.docx
+Disallow: /*.zip
+
+Sitemap: https://russkoeslovo.online/sitemap.xml
+Host: https://russkoeslovo.online
