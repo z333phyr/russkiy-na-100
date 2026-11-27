@@ -1,4 +1,8 @@
 /* Стили сайта «Русский на 100». Цвета заданы переменными на body.v03. */
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400 700;font-display:swap;src:url('../fonts/manrope-cyrillic.woff2') format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400 700;font-display:swap;src:url('../fonts/manrope-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Unbounded';font-style:normal;font-weight:600 700;font-display:swap;src:url('../fonts/unbounded-cyrillic.woff2') format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
+@font-face{font-family:'Unbounded';font-style:normal;font-weight:600 700;font-display:swap;src:url('../fonts/unbounded-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 :root{--disp:'Unbounded',sans-serif;--scr:'Cormorant Garamond',serif;--ease:cubic-bezier(0.22,1,0.36,1);--pad:48px;--max:clamp(1100px,92vw,1560px)}
 .v03{--hl:#E9C40C;--p:#013FE9;--a:#E2E538;--hl:#E9C40C;--ag:linear-gradient(135deg,color-mix(in srgb,var(--a) 45%,#fff) 0%,var(--a) 32%,color-mix(in srgb,var(--a) 82%,#000) 64%,color-mix(in srgb,var(--a) 62%,#fff) 100%);--bg:#FFFFFF;--tx:#0D0C0C;--sf:#EFEBF9;--cd:#FFFFFF;--on-a:#0D0C0C;--body:'Manrope',sans-serif;--br:999px;--tx2:#2C3244;--line:color-mix(in srgb,var(--p) 12%,transparent)}
 .v03 .alt,.v03 .sfbg{--cd:#FFFFFF}
@@ -27,7 +31,7 @@ ul{padding:0;list-style:none}
 .logo{display:inline-flex;align-items:center;gap:10px}
 .logo svg{flex:none}
 .logo .wm{font-family:var(--disp);font-weight:700;line-height:1.02;font-size:34px;letter-spacing:-.01em;color:var(--p)}
-.logo .wm i{font-style:normal;text-transform:none;letter-spacing:0;font-size:.6em;color:color-mix(in srgb,var(--hl) 72%,#000)} /* «.онлайн» — окончание домена */
+.logo .wm i{font-style:normal;text-transform:none;letter-spacing:0;font-size:.6em;color:color-mix(in srgb,var(--hl) 55%,#000)} /* «.онлайн» — окончание домена */
 
 /* кнопки */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:16px 32px;border-radius:var(--br);font-family:var(--body);font-weight:600;font-size:20px;line-height:28px;cursor:pointer;border:0;white-space:nowrap;transition:transform .5s var(--ease),background .3s var(--ease),box-shadow .3s var(--ease)}
@@ -57,8 +61,8 @@ ul{padding:0;list-style:none}
 .menu-open .burger i:nth-child(1){transform:translateY(6px) rotate(45deg)}
 .menu-open .burger i:nth-child(2){opacity:0}
 .menu-open .burger i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-.mpanel{position:fixed;inset:0;z-index:35;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);padding:96px 24px 32px;display:flex;flex-direction:column;gap:8px;opacity:0;pointer-events:none;transition:opacity .4s var(--ease)}
-.menu-open .mpanel{opacity:1;pointer-events:auto}
+.mpanel{position:fixed;inset:0;z-index:35;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);padding:96px 24px 32px;display:flex;flex-direction:column;gap:8px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .4s var(--ease),visibility .4s}
+.menu-open .mpanel{opacity:1;visibility:visible;pointer-events:auto}
 .mpanel a{font-family:var(--disp);font-weight:700;font-size:30px;line-height:1.1;color:var(--p);opacity:0;transform:translateY(24px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
 .menu-open .mpanel a{opacity:1;transform:none}
 .mpanel .btn{margin-top:auto;font-family:var(--body);font-size:19px;text-transform:none;line-height:27px}
@@ -187,7 +191,7 @@ section{position:relative}
 
 /* стоимость */
 .price{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
-.pc{border-radius:32px;padding:40px;background:var(--cd);box-shadow:0 0 0 1px var(--line);display:flex;flex-direction:column;gap:16px}
+.pc{border-radius:32px;padding:40px;background:var(--cd);box-shadow:0 0 0 1px var(--line);display:flex;flex-direction:column;gap:16px;min-width:0}
 .pc.hi{background:var(--p);color:#fff;box-shadow:none}
 .pc .tg{align-self:flex-start;padding:6px 16px;border-radius:999px;font-size:19px;line-height:24px;font-weight:600;background:var(--ag);color:var(--on-a)}
 .pc h3{font-family:var(--disp);font-size:25px;line-height:1.2;letter-spacing:-.01em;color:var(--p)}
@@ -432,7 +436,7 @@ body.v03{transition:background-color .4s}
 @media (max-width:1100px){
   :root{--pad:32px}
   .hdr nav{display:none}.burger{display:block}.hdr .bar>.btn{display:none}
-  .price{grid-template-columns:1fr}
+  .price{grid-template-columns:minmax(0,1fr)}
   .whoc.y li{display:block}.whoc.y h3{margin-bottom:12px;white-space:normal}
   .tmpl{grid-template-columns:1fr 1fr}
   .why{grid-template-columns:1fr 1fr}
@@ -489,7 +493,7 @@ body.v03{transition:background-color .4s}
   .whoc.n li{white-space:normal;font-size:22px;line-height:36px}
   .rbig .ch{gap:8px}.rbig .ch i span{font-size:17px;top:-28px}
   .apc.a1 img{flex:none;height:240px;min-height:0}
-  .price{grid-template-columns:1fr}
+  .price{grid-template-columns:minmax(0,1fr)}
   .pc{padding:28px 24px;border-radius:24px}
   .price-cta{margin-top:28px}
   .price-cta .btn{width:100%;padding:18px 24px;font-size:20px}
